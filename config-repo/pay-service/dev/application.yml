@@ -12,8 +12,6 @@ eureka:
 spring:
   profiles:
     include: base
-  application:
-    name: pay-service
   redis:
     host: 134.175.236.212
     password:
