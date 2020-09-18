@@ -1,0 +1,5 @@
+lrw\demo\feign\fallback\PayServiceFallbackFactory$1.class
+lrw\demo\feign\PayServiceFeign.class
+lrw\demo\feign\config\FeignRequestIntercept.class
+lrw\demo\feign\fallback\PayServiceFallbackFactory.class
+lrw\demo\feign\config\FeignConfig.class

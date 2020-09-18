@@ -1,0 +1,24 @@
+server:
+  port: 8001
+
+eureka:
+  client:
+    serviceUrl:
+      #是否向注册中心注册自己
+      register-with-eureka: true
+      #是否获取注册表
+      fetch-registry: false
+      defaultZone: http://localhost:8761/eureka/
+spring:
+  profiles:
+    include: base
+  application:
+    name: pay-service
+  redis:
+    host: 134.175.236.212
+    password:
+    port: 6379
+
+
+
+

@@ -1,0 +1,13 @@
+feign:
+  hystrix:
+    enabled: false
+
+#  client:
+#    default-config:
+#      ConnectTimeout: 10000
+#      ReadTimeout: 10000
+
+ribbon:
+  ConnectTimeout: 10000
+  ReadTimeout: 10000
+

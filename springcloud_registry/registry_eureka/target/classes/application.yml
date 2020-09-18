@@ -1,0 +1,24 @@
+server:
+  port: 8761
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+      fetch-registry: false
+      register-with-eureka: false
+      serviceUrl:
+              defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+
+spring:
+  application:
+    name: eureka-server
+  profiles:
+    include: base
+
+#配置feign调用链路日志
+logging:
+  level:
+    lrw.demo.feign.PayServiceFeign: debug
+
+
