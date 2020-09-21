@@ -18,8 +18,14 @@ spring:
     config:
       server:
         git:
-          uri: ${REP_URI:https://github.com/GentleLRW/lrw_cloud.git}
+          uri: https://github.com/GentleLRW/lrw_cloud.git
           search-paths: 'config-repo/{application}/{profile}/'
-          username: ${REP_USR:GentleLRW}
-          password: ${REP_PWD:lvrongwu507069}
+          username: GentleLRW
+          password: lvrongwu507069
+        health:
+          repositories:
+            check:
+              name: lrw_cloud
+              label: master
+              profiles: dev
 

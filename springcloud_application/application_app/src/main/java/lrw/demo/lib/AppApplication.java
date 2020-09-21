@@ -1,4 +1,4 @@
-package lrw.demo.lib.app;
+package lrw.demo.lib;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

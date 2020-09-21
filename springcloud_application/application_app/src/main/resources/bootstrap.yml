@@ -1,0 +1,16 @@
+spring:
+  profiles:
+    active: dev
+  application:
+    name: app
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: config-server
+      label: ${CONFIG_SERVER_LABEL:master}
+      profile: ${spring.profiles.active}
+      name: ${spring.application.name}
+
+server:
+  port: 10001
