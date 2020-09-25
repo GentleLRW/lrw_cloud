@@ -15,7 +15,7 @@ spring:
 redisson:
   lock:
     server:
-      address: redis://134.175.236.212:6379
+      address: 134.175.236.212
       type: standalone
       password:
       database: 0
