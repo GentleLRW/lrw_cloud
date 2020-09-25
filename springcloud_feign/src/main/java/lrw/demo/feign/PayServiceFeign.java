@@ -21,4 +21,7 @@ public interface PayServiceFeign {
 
     @PostMapping("/limiting/pay")
     BaseResponse limitingPayController(@RequestBody PayRequest request);
+
+    @PostMapping("/redisson/pay")
+    BaseResponse redissonPayController(@RequestBody PayRequest request);
 }
