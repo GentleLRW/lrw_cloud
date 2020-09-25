@@ -7,6 +7,7 @@ spring:
     host: 134.175.236.212
     password:
     port: 6379
+    timeout: 3s
     lettuce:
       pool:
         max-idle: 8
