@@ -10,8 +10,6 @@ eureka:
       fetch-registry: false
       defaultZone: http://localhost:8761/eureka/
 spring:
-  profiles:
-    active: native
   application:
     name: config-server
   cloud:
