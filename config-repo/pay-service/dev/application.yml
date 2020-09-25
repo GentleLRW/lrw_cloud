@@ -6,12 +6,12 @@ spring:
     password:
     port: 6379
     timeout: 3s
-      lettuce:
-        pool:
-          max-idle: 8
-          min-idle: 0
-          max-active: 8
-          max-wait: -1ms
+    lettuce:
+      pool:
+        max-idle: 8
+        min-idle: 0
+        max-active: 8
+        max-wait: -1ms
 
 redisson:
   lock:
