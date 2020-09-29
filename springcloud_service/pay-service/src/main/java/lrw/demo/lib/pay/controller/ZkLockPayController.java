@@ -1,10 +1,10 @@
 package lrw.demo.lib.pay.controller;
 
-import lrw.demo.lib.annotion.LimitQueue;
 import lrw.demo.lib.common.BaseResponse;
 import lrw.demo.lib.dto.payService.request.PayRequest;
 import lrw.demo.lib.pay.service.PayService;
 import lrw.demo.lib.redis.redission.annotion.DistributedLock;
+import lrw.demo.lib.zookeeper.annotion.ZkDistributedLock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @Date 2020/9/3 16:58
  */
 @RestController
-public class RedissonLockPayController {
+public class ZkLockPayController {
 
     @Autowired
     private PayService payService;
@@ -26,9 +26,9 @@ public class RedissonLockPayController {
     @Value("${server.port}")
     private String port;
 
-    @DistributedLock(leaseTime = 2)
-    @PostMapping("/redisson/pay")
-    public BaseResponse redissonPayController(@RequestBody PayRequest request){
+    @ZkDistributedLock(value = "/payLock")
+    @PostMapping("/zkLock/pay")
+    public BaseResponse zkLockPayController(@RequestBody PayRequest request){
         try {
             Thread.sleep(6000);
         } catch (InterruptedException e) {

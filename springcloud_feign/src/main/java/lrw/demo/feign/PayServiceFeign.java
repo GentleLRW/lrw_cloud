@@ -24,4 +24,7 @@ public interface PayServiceFeign {
 
     @PostMapping("/redisson/pay")
     BaseResponse redissonPayController(@RequestBody PayRequest request);
+
+    @PostMapping("/zkLock/pay")
+    BaseResponse zkLockPayController(@RequestBody PayRequest request);
 }

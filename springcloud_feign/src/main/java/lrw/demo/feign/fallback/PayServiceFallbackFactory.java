@@ -37,6 +37,12 @@ public class PayServiceFallbackFactory implements FallbackFactory<PayServiceFeig
                 log.error("远程调用超时异常",throwable);
                 return response;
             }
+
+            @Override
+            public BaseResponse zkLockPayController(PayRequest request) {
+                log.error("远程调用超时异常",throwable);
+                return response;
+            }
         };
     }
 }

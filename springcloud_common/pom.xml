@@ -15,6 +15,8 @@
 
     <properties>
         <redission.version>3.5.4</redission.version>
+        <org.apache.zookeeper.version>3.3.6</org.apache.zookeeper.version>
+        <com.101tec.zkclient.version>0.10</com.101tec.zkclient.version>
     </properties>
 
 
@@ -50,6 +52,30 @@
             <groupId>org.redisson</groupId>
             <artifactId>redisson</artifactId>
             <version>${redission.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.zookeeper</groupId>
+            <artifactId>zookeeper</artifactId>
+            <version>${org.apache.zookeeper.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.sun.jmx</groupId>
+                    <artifactId>jmxri</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.sun.jdmk</groupId>
+                    <artifactId>jmxtools</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>javax.jms</groupId>
+                    <artifactId>jms</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>com.101tec</groupId>
+            <artifactId>zkclient</artifactId>
+            <version>${com.101tec.zkclient.version}</version>
         </dependency>
     </dependencies>
 
