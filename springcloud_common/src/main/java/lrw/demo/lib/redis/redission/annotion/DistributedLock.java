@@ -5,7 +5,7 @@ import java.lang.annotation.*;
 
 /**
  * 基于注解的分布式式锁
- * @author Yuqiang
+ * @author lrw
  */
 @Documented
 @Inherited

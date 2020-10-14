@@ -21,3 +21,9 @@ redisson:
       database: 0
       port: 6379
 
+zookeeper:
+  lock:
+    host: 134.175.236.212
+    port: 2181
+    rootPath: /lock
+

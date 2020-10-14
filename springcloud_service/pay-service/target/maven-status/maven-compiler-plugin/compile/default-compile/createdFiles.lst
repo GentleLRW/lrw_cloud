@@ -14,6 +14,7 @@ lrw\demo\lib\pay\entity\BankCardPayEntity$BankCardPayEntityBuilder.class
 lrw\demo\lib\pay\factory\PayAbstractFactoryEnum.class
 lrw\demo\lib\pay\factory\PayAbstractFactoryEnum$3.class
 lrw\demo\lib\pay\entity\WeChatPayEntity.class
+lrw\demo\lib\pay\controller\ZkLockPayController.class
 lrw\demo\lib\pay\factory\PayAbstractFactoryEnum$2.class
 lrw\demo\lib\pay\controller\PayController.class
 lrw\demo\lib\pay\controller\RedissonLockPayController.class

@@ -1,7 +1,11 @@
 package lrw.demo.lib.zookeeper.lock;
 
+import lombok.extern.java.Log;
+import lombok.extern.slf4j.Slf4j;
 import org.I0Itec.zkclient.IZkDataListener;
 import org.I0Itec.zkclient.ZkClient;
+import org.apache.logging.log4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.concurrent.CountDownLatch;
 
@@ -11,7 +15,7 @@ import java.util.concurrent.CountDownLatch;
  * @Description TODO
  * @Date 2020/9/29 17:46
  */
-
+@Slf4j
 public class ZkDistrbuteLock extends ZkAbstractLock {
 
     private ZkConnectManager zkConnectManager;
@@ -45,7 +49,7 @@ public class ZkDistrbuteLock extends ZkAbstractLock {
              */
             @Override
             public void handleDataDeleted(String dataPath) throws Exception {
-                System.out.println("删除的节点路径为" + dataPath);
+                log.info("删除的节点路径为" + dataPath);
                 // 唤醒等待的线程
                 if (countDownLatch != null) {
                     countDownLatch.countDown();
@@ -73,10 +77,10 @@ public class ZkDistrbuteLock extends ZkAbstractLock {
     protected boolean tryLock() {
         try {
             getZkClient().createEphemeral(getPath());
-            System.out.println("获取lock锁成功");
+            log.info("获取lock锁成功");
             return true;
         } catch (Exception e) {
-            System.out.println("获取lock锁失败");
+            log.error("获取lock锁失败");
             return false;
         }
     }

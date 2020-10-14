@@ -3,4 +3,5 @@ lrw\demo\lib\app\controller\RedissonPayController.class
 lrw\demo\lib\app\controller\FeignPayController.class
 lrw\demo\lib\config\RestTemplateConfig.class
 lrw\demo\lib\app\controller\RestTemplatePayController.class
+lrw\demo\lib\app\controller\ZkLockPayController.class
 lrw\demo\lib\AppApplication.class

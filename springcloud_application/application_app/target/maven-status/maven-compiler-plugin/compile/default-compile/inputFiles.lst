@@ -1,5 +1,6 @@
 E:\project\mine\lrw_cloud\springcloud_application\application_app\src\main\java\lrw\demo\lib\app\controller\RestTemplatePayController.java
 E:\project\mine\lrw_cloud\springcloud_application\application_app\src\main\java\lrw\demo\lib\AppApplication.java
+E:\project\mine\lrw_cloud\springcloud_application\application_app\src\main\java\lrw\demo\lib\app\controller\ZkLockPayController.java
 E:\project\mine\lrw_cloud\springcloud_application\application_app\src\main\java\lrw\demo\lib\config\RestTemplateConfig.java
 E:\project\mine\lrw_cloud\springcloud_application\application_app\src\main\java\lrw\demo\lib\app\controller\RedissonPayController.java
 E:\project\mine\lrw_cloud\springcloud_application\application_app\src\main\java\lrw\demo\lib\app\controller\LimitPayController.java

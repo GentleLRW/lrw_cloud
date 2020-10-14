@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * 分布式锁注解解析器
- * @author Yuqiang
+ * @author lrw
  */
 @Aspect
 @Component
