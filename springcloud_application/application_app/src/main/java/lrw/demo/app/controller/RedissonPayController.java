@@ -1,8 +1,8 @@
-package lrw.demo.lib.app.controller;
+package lrw.demo.app.controller;
 
+import lrw.demo.feign.PayServiceFeign;
 import lrw.demo.lib.common.BaseResponse;
 import lrw.demo.lib.dto.payService.request.PayRequest;
-import lrw.demo.feign.PayServiceFeign;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,13 +14,13 @@ import org.springframework.web.bind.annotation.RestController;
  * @Date 2020/9/3 19:38
  */
 @RestController
-public class FeignPayController {
+public class RedissonPayController {
 
     @Autowired
     private PayServiceFeign payServiceFeign;
 
-    @PostMapping("/feign/pay")
+    @PostMapping("/redisson/pay")
     public BaseResponse pay(PayRequest payRequest){
-        return payServiceFeign.payController(payRequest);
+        return payServiceFeign.redissonPayController(payRequest);
     }
 }

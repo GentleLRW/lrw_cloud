@@ -3,6 +3,8 @@ package lrw.demo.lib.zookeeper.lock;
 import lrw.demo.lib.redis.redission.RedissonAutoConfiguration;
 import lrw.demo.lib.redis.redission.RedissonConfig;
 import lrw.demo.lib.redis.redission.RedissonConnectManage;
+import lrw.demo.lib.redis.redission.annotion.DistributedLockHandler;
+import lrw.demo.lib.zookeeper.annotion.ZkDistributedLockHandler;
 import org.redisson.Redisson;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,6 +28,11 @@ public class ZKLockAutoConfiguration {
     @Bean
     public ZkConnectManager redissonConnectManage(ZkLockConfigProperties zkLockConfigProperties){
         return new ZkConnectManager(zkLockConfigProperties);
+    }
+
+    @Bean
+    public ZkDistributedLockHandler zkDistributedLockHandler(){
+        return new ZkDistributedLockHandler();
     }
 
 }

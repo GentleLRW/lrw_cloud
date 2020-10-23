@@ -1,4 +1,4 @@
-package lrw.demo.lib.app.controller;
+package lrw.demo.app.controller;
 
 import lrw.demo.lib.common.BaseResponse;
 import lrw.demo.lib.dto.payService.request.PayRequest;

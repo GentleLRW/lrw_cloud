@@ -13,7 +13,7 @@ import org.springframework.boot.SpringBootConfiguration;
  */
 @SpringBootConfiguration
 @EnableLimitQueue
-@EnableRedisConfig
+//@EnableRedisConfig
 @EnableZkLockConfig
 public class BaseConfig {
 }

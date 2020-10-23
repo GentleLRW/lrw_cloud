@@ -87,11 +87,12 @@ public class ZkDistrbuteLock extends ZkAbstractLock {
 
     @Override
     protected ZkClient getZkClient() {
+        log.info("获取zk客户端");
         return this.zkConnectManager.getZKClient(getPath());
     }
 
     private String getPath(){
-        return this.zkConnectManager.getZkLockConfigProperties().getRootPath()+this.childPath;
+        return this.childPath;
     }
 
 }

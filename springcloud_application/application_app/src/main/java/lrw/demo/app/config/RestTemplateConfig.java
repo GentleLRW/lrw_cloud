@@ -1,4 +1,4 @@
-package lrw.demo.lib.config;
+package lrw.demo.app.config;
 
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;

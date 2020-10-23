@@ -1,5 +1,6 @@
 package lrw.demo.lib.zookeeper.lock;
 
+import lombok.extern.slf4j.Slf4j;
 import org.I0Itec.zkclient.ZkClient;
 
 import java.util.concurrent.ConcurrentHashMap;
@@ -10,6 +11,7 @@ import java.util.concurrent.ConcurrentHashMap;
  * @Description TODO
  * @Date 2020/9/29 17:30
  */
+@Slf4j
 public class ZKClientFactory {
 
     private ZKClientFactory() {
@@ -32,6 +34,7 @@ public class ZKClientFactory {
 
 
     public ZkClient getZkClient(String path){
+        log.info("ZkClient路径"+path);
         if(map.containsKey(path)){
             return map.get(path);
         }else{

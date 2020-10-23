@@ -2,12 +2,14 @@ package lrw.demo.lib.zookeeper.annotion;
 
 
 import lombok.extern.slf4j.Slf4j;
+import lrw.demo.lib.annotion.LimitQueue;
 import lrw.demo.lib.redis.redission.RedissonLock;
 import lrw.demo.lib.zookeeper.lock.ZkConnectManager;
 import lrw.demo.lib.zookeeper.lock.ZkDistrbuteLock;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -24,9 +26,14 @@ public class ZkDistributedLockHandler {
     @Autowired
     private ZkConnectManager zkConnectManager;
 
-    @Around("@annotation(zkDistributedLock)")
+    @Pointcut(value = "@annotation(zkDistributedLock)")
+    public void getPointCut(ZkDistributedLock zkDistributedLock){
+
+    }
+
+    @Around("getPointCut(zkDistributedLock)")
     public void around(ProceedingJoinPoint joinPoint, ZkDistributedLock zkDistributedLock) {
-        log.info("[开始]执行RedisLock环绕通知,获取Redis分布式锁开始");
+        log.info("[开始]执行Zookeeper环绕通知,获取Zookeeper分布式锁开始");
         //获取锁目录
         String childPath = zkDistributedLock.value();
         ZkDistrbuteLock zkLock = new ZkDistrbuteLock(zkConnectManager, childPath);

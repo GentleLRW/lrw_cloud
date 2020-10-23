@@ -1,4 +1,4 @@
-package lrw.demo.lib.app.controller;
+package lrw.demo.app.controller;
 
 import lrw.demo.feign.PayServiceFeign;
 import lrw.demo.lib.common.BaseResponse;
@@ -14,13 +14,13 @@ import org.springframework.web.bind.annotation.RestController;
  * @Date 2020/9/3 19:38
  */
 @RestController
-public class LimitPayController {
+public class ZkLockPayController {
 
     @Autowired
     private PayServiceFeign payServiceFeign;
 
-    @PostMapping("/limit/pay")
+    @PostMapping("/zkLock/pay")
     public BaseResponse pay(PayRequest payRequest){
-        return payServiceFeign.limitingPayController(payRequest);
+        return payServiceFeign.zkLockPayController(payRequest);
     }
 }
