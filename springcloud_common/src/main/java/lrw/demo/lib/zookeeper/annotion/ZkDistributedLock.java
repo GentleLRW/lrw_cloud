@@ -18,6 +18,11 @@ public @interface ZkDistributedLock {
      */
     String value() default "/baseLock";
 
+    /**
+     * 锁目录
+     */
+    int sessionTimeOut() default 10000;
+
 }
 
 

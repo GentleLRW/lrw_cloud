@@ -33,15 +33,29 @@ public class ZKClientFactory {
     }
 
 
-    public ZkClient getZkClient(String path){
-        log.info("ZkClient路径"+path);
-        if(map.containsKey(path)){
-            return map.get(path);
+    public ZkClient getZkClient(String host,String key){
+        if(map.containsKey(key)){
+            return map.get(key);
         }else{
-            ZkClient zkClient = new ZkClient(path);
-            map.put(path,zkClient);
-            return zkClient;
+            return createZkClient(host,key);
         }
     }
+
+    public ZkClient createZkClient(String host,String key){
+        ZkClient zkClient = new ZkClient(host);
+        map.put(key,zkClient);
+        return zkClient;
+    }
+
+    public ZkClient createZkClient(String host,String key,int sessionTimeOut){
+        ZkClient zkClient = new ZkClient(host,sessionTimeOut,100000);
+        map.put(key,zkClient);
+        return zkClient;
+    }
+
+    public ZkClient releaseZkClient(String key){
+        return map.remove(key);
+    }
+
 
 }

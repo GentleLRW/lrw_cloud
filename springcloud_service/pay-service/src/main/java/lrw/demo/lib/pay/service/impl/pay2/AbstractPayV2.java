@@ -15,29 +15,12 @@ import java.util.concurrent.ConcurrentHashMap;
  * @Description TODO
  * @Date 2020/10/23 15:14
  */
-public abstract class AbstractPayV2 implements ApplicationListener<ContextRefreshedEvent>,BasePayService {
-
-    private ConcurrentHashMap<PayMannerEnum, AbstractPayV2> payMap = new ConcurrentHashMap<>();
-
-    private ApplicationContext applicationContext;
-
-    void registerPayBean(){
-        payMap.put(PayMannerEnum.ALIPAY,this.applicationContext.getBean("aliPayService",AbstractPayV2.class));
-        payMap.put(PayMannerEnum.WECHAT,this.applicationContext.getBean("weChatPayService",AbstractPayV2.class));
-        payMap.put(PayMannerEnum.BANKCARD,this.applicationContext.getBean("bankCardPayService",AbstractPayV2.class));
-    }
-
-    @Override
-    public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
-        this.applicationContext = contextRefreshedEvent.getApplicationContext();
-        registerPayBean();
-    }
+public abstract class AbstractPayV2 implements BasePayService {
 
     public abstract void pay(PayRequest request);
 
     @Override
     public void basePay(PayRequest request) {
-        AbstractPayV2 payFactory = payMap.get(request.getPayManner());
-        payFactory.pay(request);
+        pay(request);
     }
 }

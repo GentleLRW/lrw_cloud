@@ -13,6 +13,8 @@ import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 
 /**
  * 分布式锁注解解析器
@@ -36,7 +38,8 @@ public class ZkDistributedLockHandler {
         log.info("[开始]执行Zookeeper环绕通知,获取Zookeeper分布式锁开始");
         //获取锁目录
         String childPath = zkDistributedLock.value();
-        ZkDistrbuteLock zkLock = new ZkDistrbuteLock(zkConnectManager, childPath);
+        int sessionTimeOut = zkDistributedLock.sessionTimeOut();
+        ZkDistrbuteLock zkLock = new ZkDistrbuteLock(zkConnectManager, childPath,sessionTimeOut);
         zkLock.getLock();
         try {
             log.info("获取Zookeeper分布式锁[成功]，加锁完成，开始执行业务逻辑..."+System.currentTimeMillis());

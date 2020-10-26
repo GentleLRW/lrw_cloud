@@ -1,5 +1,6 @@
 package lrw.demo.lib.zookeeper.lock;
 
+import lombok.extern.slf4j.Slf4j;
 import org.I0Itec.zkclient.ZkClient;
 
 import java.util.concurrent.CountDownLatch;
@@ -10,6 +11,7 @@ import java.util.concurrent.CountDownLatch;
  * @Description TODO
  * @Date 2020/9/29 17:40
  */
+@Slf4j
 public abstract class ZkAbstractLock implements ZkBaseLock {
 
 
@@ -20,7 +22,7 @@ public abstract class ZkAbstractLock implements ZkBaseLock {
     @Override
     public void getLock() {
         if (tryLock()) {
-            System.out.println("获取lock锁的资源");
+            log.info("获取lock锁的资源");
         } else {
             // 等待
             waitLock();
@@ -32,8 +34,8 @@ public abstract class ZkAbstractLock implements ZkBaseLock {
     @Override
     public void unLock() {
         if (getZkClient() != null) {
-            getZkClient().close();
-            System.out.println("释放lock锁资源");
+            releaseZkClient().close();
+            log.info("释放lock锁资源");
         }
     }
 
@@ -44,6 +46,8 @@ public abstract class ZkAbstractLock implements ZkBaseLock {
     protected abstract boolean tryLock();
 
     protected abstract ZkClient getZkClient();
+
+    protected abstract ZkClient releaseZkClient();
 
 
 }

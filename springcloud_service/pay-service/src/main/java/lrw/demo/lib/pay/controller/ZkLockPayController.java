@@ -28,7 +28,7 @@ public class ZkLockPayController {
     @Value("${server.port}")
     private String port;
 
-    @ZkDistributedLock(value = "/payLock")
+    @ZkDistributedLock(value = "/payLock",sessionTimeOut = 3)
     @PostMapping("/zkLock/pay")
     public BaseResponse zkLockPayController(@RequestBody PayRequest request){
         log.info("进入/zkLock/pay");

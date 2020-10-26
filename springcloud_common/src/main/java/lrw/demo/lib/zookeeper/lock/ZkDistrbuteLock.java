@@ -7,6 +7,7 @@ import org.I0Itec.zkclient.ZkClient;
 import org.apache.logging.log4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.UUID;
 import java.util.concurrent.CountDownLatch;
 
 /**
@@ -20,10 +21,14 @@ public class ZkDistrbuteLock extends ZkAbstractLock {
 
     private ZkConnectManager zkConnectManager;
     private String childPath;
+    private String key;
+    private int sessionTimeOut;
 
-    public ZkDistrbuteLock(ZkConnectManager zkConnectManager,String childPath){
+    public ZkDistrbuteLock(ZkConnectManager zkConnectManager,String childPath,int sessionTimeOut){
         this.zkConnectManager = zkConnectManager;
         this.childPath = childPath;
+        this.sessionTimeOut = sessionTimeOut;
+        this.key = UUID.randomUUID().toString();
     }
 
 
@@ -76,7 +81,7 @@ public class ZkDistrbuteLock extends ZkAbstractLock {
     @Override
     protected boolean tryLock() {
         try {
-            getZkClient().createEphemeral(getPath());
+            this.zkConnectManager.createZkClient(this.key,this.sessionTimeOut).createEphemeral(getPath());
             log.info("获取lock锁成功");
             return true;
         } catch (Exception e) {
@@ -87,8 +92,12 @@ public class ZkDistrbuteLock extends ZkAbstractLock {
 
     @Override
     protected ZkClient getZkClient() {
-        log.info("获取zk客户端");
-        return this.zkConnectManager.getZKClient(getPath());
+        return this.zkConnectManager.getZKClient(this.key);
+    }
+
+    @Override
+    protected ZkClient releaseZkClient() {
+        return this.zkConnectManager.releaseZkClient(this.key);
     }
 
     private String getPath(){

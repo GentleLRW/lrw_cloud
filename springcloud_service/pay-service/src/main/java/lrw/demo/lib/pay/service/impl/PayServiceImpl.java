@@ -25,11 +25,11 @@ import javax.annotation.Resource;
 public class PayServiceImpl implements PayService {
 
     @Resource(name = "basePayService")
-    private AbstractPayV2 abstractPayV2;
+    private BasePayService basePayService;
 
     @Override
     public BaseResponse pay(PayRequest request) {
-        abstractPayV2.basePay(request);
+        basePayService.basePay(request);
 
         //第一版支付实现
 //        PayAbstractServiceFactory factory = PayAbstractServiceFactory.payMap.get(request.getPayManner());
