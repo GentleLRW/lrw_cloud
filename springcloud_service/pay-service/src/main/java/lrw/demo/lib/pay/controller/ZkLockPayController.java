@@ -28,12 +28,12 @@ public class ZkLockPayController {
     @Value("${server.port}")
     private String port;
 
-    @ZkDistributedLock(value = "/payLock",sessionTimeOut = 3)
+    @ZkDistributedLock(value = "/payLock")
     @PostMapping("/zkLock/pay")
     public BaseResponse zkLockPayController(@RequestBody PayRequest request){
         log.info("进入/zkLock/pay");
         try {
-            Thread.sleep(6000);
+            Thread.sleep(3000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

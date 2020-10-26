@@ -42,9 +42,7 @@ public class ZKClientFactory {
     }
 
     public ZkClient createZkClient(String host,String key){
-        ZkClient zkClient = new ZkClient(host);
-        map.put(key,zkClient);
-        return zkClient;
+        return createZkClient(host,key,10000);
     }
 
     public ZkClient createZkClient(String host,String key,int sessionTimeOut){

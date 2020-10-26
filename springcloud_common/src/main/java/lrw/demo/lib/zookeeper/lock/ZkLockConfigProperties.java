@@ -23,7 +23,7 @@ public class ZkLockConfigProperties {
     private long maxWaitMillis = 100;
 
     public String getConnectString() {
-        return host + ":" + port;
+        return this.host + ":" + this.port;
     }
 
 }
