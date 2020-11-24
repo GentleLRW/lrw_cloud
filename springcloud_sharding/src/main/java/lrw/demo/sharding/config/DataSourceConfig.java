@@ -23,10 +23,10 @@ import java.util.Map;
  * @Date 2020/11/10 17:11
  */
 @SpringBootConfiguration
-@EnableConfigurationProperties({DataSourceProperties.class})
+@EnableConfigurationProperties({ShardingDataSourceProperties.class})
 public class DataSourceConfig {
     @Autowired
-    private DataSourceProperties dataSourceProperties;
+    private ShardingDataSourceProperties shardingDataSourceProperties;
 
     @Resource
     private IShardingRuleConfiguration shardingRuleConfiguration;
@@ -43,11 +43,11 @@ public class DataSourceConfig {
     private Map<String, DataSource> createDataSourceMap() {
         Map<String, DataSource> map = new HashMap<>();
         DruidDataSource druidDataSource = new DruidDataSource();
-        druidDataSource.setUrl(dataSourceProperties.getUrl());
-        druidDataSource.setPassword(dataSourceProperties.getPassword());
-        druidDataSource.setUsername(dataSourceProperties.getUsername());
-        druidDataSource.setDriverClassName(dataSourceProperties.getDriverClassName());
-        map.put(dataSourceProperties.getDateSourceName(),druidDataSource);
+        druidDataSource.setUrl(shardingDataSourceProperties.getUrl());
+        druidDataSource.setPassword(shardingDataSourceProperties.getPassword());
+        druidDataSource.setUsername(shardingDataSourceProperties.getUsername());
+        druidDataSource.setDriverClassName(shardingDataSourceProperties.getDriverClassName());
+        map.put(shardingDataSourceProperties.getDateSourceName(),druidDataSource);
         return map;
     }
 

@@ -13,7 +13,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 @Data
 @SpringBootConfiguration
 @ConfigurationProperties(prefix = "spring.sharding-jdbc")
-public class DataSourceProperties {
+public class ShardingDataSourceProperties {
     private String dateSourceName;
 
     private String driverClassName;

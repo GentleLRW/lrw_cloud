@@ -2,7 +2,7 @@ package lrw.demo.sharding.annotion;
 
 
 import lrw.demo.sharding.config.DataSourceConfig;
-import lrw.demo.sharding.config.DataSourceProperties;
+import lrw.demo.sharding.config.ShardingDataSourceProperties;
 import org.springframework.context.annotation.Import;
 
 import java.lang.annotation.ElementType;
@@ -18,7 +18,7 @@ import java.lang.annotation.Target;
  */
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
-@Import({DataSourceConfig.class, DataSourceProperties.class})
+@Import({DataSourceConfig.class, ShardingDataSourceProperties.class})
 public @interface EnableSharding {
 
 }
