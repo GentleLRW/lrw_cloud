@@ -24,6 +24,11 @@
             <artifactId>springcloud_feign</artifactId>
             <version>1.0.0</version>
         </dependency>
+        <dependency>
+            <groupId>lrw.demo</groupId>
+            <artifactId>springcloud_sharding</artifactId>
+            <version>1.0.0</version>
+        </dependency>
     </dependencies>
 
     <build>

@@ -14,6 +14,7 @@
         <module>springcloud_config</module>
         <module>springcloud_common</module>
         <module>springcloud_feign</module>
+        <module>springcloud_sharding</module>
     </modules>
     <packaging>pom</packaging>
 

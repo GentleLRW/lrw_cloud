@@ -3,6 +3,7 @@ package lrw.demo.lib.pay.config;
 import lrw.demo.lib.annotion.EnableLimitQueue;
 import lrw.demo.lib.annotion.EnableRedisConfig;
 import lrw.demo.lib.annotion.EnableZkLockConfig;
+import lrw.demo.sharding.annotion.EnableSharding;
 import org.springframework.boot.SpringBootConfiguration;
 
 /**
@@ -15,5 +16,6 @@ import org.springframework.boot.SpringBootConfiguration;
 @EnableLimitQueue
 //@EnableRedisConfig
 @EnableZkLockConfig
+@EnableSharding
 public class BaseConfig {
 }

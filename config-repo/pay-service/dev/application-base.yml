@@ -11,3 +11,9 @@ ribbon:
   ConnectTimeout: 30000
   ReadTimeout: 30000
 
+spring:
+  sharding-jdbc:
+    password: 123456
+    url: jdbc:mysql://134.175.236.212:3306/f5cloud_scheduler?zeroDateTimeBehavior=convertToNull&unicode=true&characterEncoding=UTF-8&useOldAliasMetadataBehavior=true&useSSL=false
+    username: root
+    driverClassName: com.mysql.jdbc.Driver
