@@ -12,8 +12,9 @@ spring:
         max-active: 8
         max-wait: -1ms
   sharding-jdbc:
+    dateSourceName: shop
     password: 123456
-    url: jdbc:mysql://134.175.236.212:3306/f5cloud_scheduler?zeroDateTimeBehavior=convertToNull&unicode=true&characterEncoding=UTF-8&useOldAliasMetadataBehavior=true&useSSL=false
+    url: jdbc:mysql://127.0.0.1:3306/shop?zeroDateTimeBehavior=convertToNull&unicode=true&characterEncoding=UTF-8&useOldAliasMetadataBehavior=true&useSSL=false
     username: root
     driverClassName: com.mysql.jdbc.Driver
 

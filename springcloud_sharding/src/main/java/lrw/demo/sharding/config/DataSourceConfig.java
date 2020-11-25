@@ -23,9 +23,9 @@ import java.util.Map;
  * @Date 2020/11/10 17:11
  */
 @SpringBootConfiguration
-@EnableConfigurationProperties({ShardingDataSourceProperties.class})
+//@EnableConfigurationProperties({ShardingDataSourceProperties.class})
 public class DataSourceConfig {
-    @Autowired
+    @Resource
     private ShardingDataSourceProperties shardingDataSourceProperties;
 
     @Resource
