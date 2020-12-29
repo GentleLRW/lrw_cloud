@@ -1,7 +1,5 @@
 package lrw.demo.lib.annotion;
 
-import lrw.demo.lib.redis.config.RedisConfig;
-import lrw.demo.lib.redis.redission.RedissonAutoConfiguration;
 import lrw.demo.lib.zookeeper.lock.ZKLockAutoConfiguration;
 import org.springframework.context.annotation.Import;
 

@@ -10,7 +10,7 @@ import java.time.temporal.TemporalAccessor;
 import java.util.Locale;
 
 /**
- * @author fun
+ * @author lrw
  * @date 2019/7/15
  */
 public enum TimeRegexFormatter {
